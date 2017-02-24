@@ -1,14 +1,29 @@
 class GroceryListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hover: false
+    };
+  }
+  onMouseEnterItem() {
+    this.setState({
+      hover: true
+    });
+  }
+  onMouseExitItem() {
+    this.setState({
+      hover: false
+    });
   }
   render() {
+    var style = {
+      fontWeight: this.state.hover ? 'bold' : 'normal'
+    };
     return (
-      <li>{this.props.item}</li>
+      <li style={style} onMouseEnter={this.onMouseEnterItem.bind(this)} onMouseLeave={this.onMouseExitItem.bind(this)}>{this.props.item}</li>
     );
   }
 }
-
 
 var GroceryList = (props) => (
   <div>
