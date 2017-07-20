@@ -29,12 +29,12 @@ var GroceryList = (props) => (
   <div>
     <h2>Edwin's Basik Grocery List</h2>
     <ul>
-      {props.groceryItems.map( (item) =>
-        <GroceryListItem item = {item} />
+      {props.groceryItems.map( (item, index) =>
+        <GroceryListItem item = {item} key={index}/>
       )}
     </ul>
   </div>
 );
 
-ReactDOM.render(<GroceryList groceryItems = {['Acai', 'Kale']} />, document.getElementById('app'));
+ReactDOM.render(<GroceryList groceryItems = {['Acai', 'Kale', 'Bananas']} />, document.getElementById('app'));
 
